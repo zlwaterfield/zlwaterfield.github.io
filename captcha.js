@@ -5,7 +5,6 @@ var words = ["deoxyribonucleoprotein", "nondistinguishableness", "noninterchange
 var index = genIndex()
 
 console.log("Init captcha.js");
-document.domain = 'facebook.com';
 
 
 // Initialize and render image
