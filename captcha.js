@@ -18,7 +18,7 @@ function receiveMessage(event)
 
 
   console.log(captcha_id + " - Origin succeeded: " + origin);
-  captcha_id = event.data;  
+  captcha_id = event.data;
 }
 
 // Initialize and render image
@@ -50,10 +50,14 @@ function buttonClick () {
   if (genWord() === word) {
     // SUCCESS
     $('.message').text( "Success!!! Congrats you're not a dumbass!" );
+    $('.message').addClass("success");
+    $('.message').removeClass("error");
     window.parent.postMessage(captcha_id, "*")
   } else {
     // FAILURE
-    $('.message').text( "FAILURE!!! Fucking BOT!" );
+    $('.message').text( "FAILURE! Dumbass!" );
+    $('.message').addClass("error");
+    $('.message').removeClass("success");
   }
   // checkAgainst word generated
 }
