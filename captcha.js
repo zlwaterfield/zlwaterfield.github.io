@@ -37,7 +37,7 @@ function buttonClick () {
   if (genWord() === word) {
     // SUCCESS
     $('.message').text( "Success!!! Congrats you're not a dumbass!" );
-    window.parent.captcha_success();
+    window.parent.postMessage(1, "*")
   } else {
     // FAILURE
     $('.message').text( "FAILURE!!! Fucking BOT!" );
