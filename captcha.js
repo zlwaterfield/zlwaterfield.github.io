@@ -3,9 +3,20 @@ var words = ["deoxyribonucleoprotein", "nondistinguishableness", "noninterchange
 
 // save index state globally
 var index = genIndex()
+var captcha_id = 0;
 
 console.log("Init captcha.js");
 
+window.addEventListener("message", receiveMessage, false);
+
+function receiveMessage(event)
+{
+  var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+  if (origin !== "https://www.facebook.com")
+    return;
+
+  captcha_id = event.data;  
+}
 
 // Initialize and render image
 function init(id) {
@@ -36,7 +47,7 @@ function buttonClick () {
   if (genWord() === word) {
     // SUCCESS
     $('.message').text( "Success!!! Congrats you're not a dumbass!" );
-    window.parent.postMessage(1, "*")
+    window.parent.postMessage(captcha_id, "*")
   } else {
     // FAILURE
     $('.message').text( "FAILURE!!! Fucking BOT!" );
