@@ -13,8 +13,11 @@ function receiveMessage(event)
 {
   var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
   if (origin !== "https://www.facebook.com")
+    console.log("Origin failed: " + origin);
     return;
 
+
+  console.log(captcha_id + " - Origin succeeded: " + origin);
   captcha_id = event.data;  
 }
 
