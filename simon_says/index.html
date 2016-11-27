@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <title>Simon Says</title>
 
   <link rel="stylesheet" href="simon_says.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -14,9 +15,7 @@
       <div class='startSimonSays btn' onClick=startSimonSays()>Start</div>
       <div class='restartSimonSays btn' onClick=restartSimonSays()>Restart</div>
       </br>
-      <div class='yourTurn info'>Your Turn</div>
-      <div class='error info '>You FUCKED up!</div>
-      <div class='winner info '>Winner winner!</div>
+      <div class='message'></div>
     </div>
     <div class="row">
       <div class="col-xs-6">
@@ -41,7 +40,7 @@
       </div>
     </div>
   </div>
-  <script src="jquery-1.11.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="simon_says.js"></script>
 </body>
 </html>

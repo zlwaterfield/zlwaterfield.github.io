@@ -1,5 +1,7 @@
-.yourTurn, .error, .winner {
-    display: none;
+.message {
+    color: white;
+    padding: 10px;
+    font-size: 1.4em;
 }
 
 .startSimonSays, .restartSimonSays {
@@ -35,7 +37,7 @@
   margin-right: auto;
   text-align: center;
   width: 100%;
-  margin-top: 160px;
+  margin-top: 260px;
   z-index: 10;
 }
 

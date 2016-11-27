@@ -1,13 +1,15 @@
 var sequence = []
 var user_clicks = []
 
+function initialize() {
+  $('.message').text('Welcome, click start to begin. Dont forget to follow simon.')
+}
+
 function restartSimonSays () {
   sequence = []
   user_clicks = []
   $('.startSimonSays').css({ display: 'inline-block' })
-  $('.yourTurn').css({ display: 'none' })
-  $('.error').css({ display: 'none' })
-  $('.winner').css({ display: 'none' })
+  $('.message').text('')
 }
 
 function startSimonSays () {
@@ -32,7 +34,9 @@ function lightSequence () {
           i++
           myLoop(i)
         } else {
-          $('.yourTurn').css({ display: 'inline-block' })
+          setTimeout(function() {
+            $('.message').text('Your turn')
+          }, 400)
         }
      }, 600)
   })(0);
@@ -77,8 +81,7 @@ function doneRound () {
 }
 
 function userError () {
-  $('.yourTurn').css({ display: 'none' })
-  $('.error').css({ display: 'inline-block' })
+  $('.message').text('You made a mistake.')
 }
 
 function nextRound () {
@@ -86,10 +89,10 @@ function nextRound () {
     user_clicks = []
     var next = genRandomNum()
     sequence.push(next)
+    $('.message').text('Pay attention')
     lightSequence()
   } else {
-    $('.yourTurn').css({ display: 'none' })
-    $('.winner').css({ display: 'inline-block' })
+    $('.message').text('Winner!')
   }
 }
 
