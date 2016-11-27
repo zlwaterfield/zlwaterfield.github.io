@@ -17,8 +17,8 @@ function receiveMessage(event)
     return;
   }
 
+  captcha_id = event.data;  
   console.log(captcha_id + " - Origin succeeded: " + origin);
-  captcha_id = event.data;
 }
 
 // Initialize and render image
