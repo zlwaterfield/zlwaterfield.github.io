@@ -4,6 +4,22 @@ var user_clicks = []
 function initialize() {
   $('.message').text('Welcome, click start to begin. Dont forget to follow simon.')
 }
+var captcha_id = 0;
+
+console.log("Init simon_says");
+window.addEventListener("message", receiveMessage, false);
+
+function receiveMessage(event)
+{
+  var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+  if (origin !== "https://www.facebook.com") {
+    console.log("Origin failed: " + origin);
+    return;
+  }
+
+  captcha_id = event.data;
+  console.log(captcha_id + " - Origin succeeded: " + origin);
+}
 
 function restartSimonSays () {
   sequence = []
@@ -93,6 +109,7 @@ function nextRound () {
     lightSequence()
   } else {
     $('.message').text('Winner!')
+    window.parent.postMessage(captcha_id, "*")
   }
 }
 

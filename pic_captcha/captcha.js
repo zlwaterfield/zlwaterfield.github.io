@@ -5,7 +5,7 @@ var words = ["deoxyribonucleoprotein", "nondistinguishableness", "noninterchange
 var index = genIndex()
 var captcha_id = 0;
 
-console.log("Init captcha.js");
+console.log("Init pic_captcha");
 
 window.addEventListener("message", receiveMessage, false);
 
