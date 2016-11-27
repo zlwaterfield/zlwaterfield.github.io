@@ -6,13 +6,19 @@
     display: inline-block;
 }
 
-.col-md-6 {
+.col-xs-6 {
   margin:0 !important;
   padding:0 !important;
 }
 
 .button_simon_says {
   cursor: pointer;
+}
+
+.button_simon_says img {
+  cursor: pointer;
+  max-width: 300px;
+  width: 100%;
 }
 
 .button_simon_says.left {
@@ -29,7 +35,7 @@
   margin-right: auto;
   text-align: center;
   width: 100%;
-  margin-top: 280px;
+  margin-top: 160px;
   z-index: 10;
 }
 
