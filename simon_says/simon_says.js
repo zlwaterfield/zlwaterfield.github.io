@@ -1,6 +1,23 @@
 var sequence = []
 var user_clicks = []
 
+var captcha_id = 0;
+
+console.log("Init simon_says");
+window.addEventListener("message", receiveMessage, false);
+
+function receiveMessage(event)
+{
+  var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+  if (origin !== "https://www.facebook.com") {
+    console.log("Origin failed: " + origin);
+    return;
+  }
+
+  captcha_id = event.data;  
+  console.log(captcha_id + " - Origin succeeded: " + origin);
+}
+
 function restartSimonSays () {
   sequence = []
   user_clicks = []
@@ -90,6 +107,7 @@ function nextRound () {
   } else {
     $('.yourTurn').css({ display: 'none' })
     $('.winner').css({ display: 'inline-block' })
+    window.parent.postMessage(captcha_id, "*")
   }
 }
 
