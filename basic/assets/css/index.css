@@ -2713,11 +2713,6 @@
 			}
 
 /* Wrapper */
-
-	body.is-touch .wrapper.style3 {
-		background-attachment: scroll;
-	}
-
 	.wrapper {
 		padding: 6em 0 4em 0;
 	}
